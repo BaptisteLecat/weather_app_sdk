@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:weather_app_sdk/api/entity/current_weather/current_weather.dart';
 import 'package:weather_app_sdk/api/entity/day/day.dart';
 import 'package:weather_app_sdk/api/entity/hourly_units/hourly_units.dart';
+import 'package:weather_app_sdk/api/entity/weather_icon/weather_icon.dart';
 part 'weather_data.freezed.dart';
 
 @freezed
@@ -30,7 +31,9 @@ class WeatherData with _$WeatherData {
       timezone: json['timezone'],
       timezoneAbbreviation: json['timezone_abbreviation'],
       elevation: json['elevation'],
-      currentWeather: CurrentWeather.fromJson(json['current_weather']),
+      currentWeather: CurrentWeather.fromJson(json['current_weather']).copyWith(
+          weatherIconName:
+              WeatherIcon.getImageName(json['current_weather']['weathercode'])),
       hourlyUnits: HourlyUnits.fromJson(json['hourly_units']),
       days: (json['hourly']['time'] as List)
           .map((hour) => Day.fromJson(hour, json))

@@ -31,8 +31,10 @@ void main() {
       weatherAppSdk = WeatherAppSdk();
     });
     test('getOneCallWeather', () async {
-      var weatherData = await weatherAppSdk.getOneCallWeather();
-      print(weatherData.city.toString());
+      var weatherData =
+          await weatherAppSdk.getForecastWeatherByLatitudeLongitude(
+              latitude: 1.30, longitude: 1.20);
+      print(weatherData.currentWeather.toString());
       expect(weatherData, isA<WeatherData>());
     });
   });

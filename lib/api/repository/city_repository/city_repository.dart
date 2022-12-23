@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:weather_app_sdk/api/datasource/city_datasource.dart';
+import 'package:weather_app_sdk/api/datasource/geocoding_datasource.dart';
 
-class CityRepository extends CityDataSource {
+class CityRepository extends GeocodingDataSource {
   static String ressource = 'reverse-geocode-client';
 
   Future<String> fetch({

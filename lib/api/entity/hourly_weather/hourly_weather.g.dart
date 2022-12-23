@@ -13,6 +13,7 @@ _$_HourlyWeather _$$_HourlyWeatherFromJson(Map<String, dynamic> json) =>
       precipitation: (json['precipitation'] as num).toDouble(),
       rain: (json['rain'] as num).toDouble(),
       weathercode: json['weathercode'] as int,
+      weatherIconName: json['weatherIconName'] as String,
     );
 
 Map<String, dynamic> _$$_HourlyWeatherToJson(_$_HourlyWeather instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_HourlyWeatherToJson(_$_HourlyWeather instance) =>
       'precipitation': instance.precipitation,
       'rain': instance.rain,
       'weathercode': instance.weathercode,
+      'weatherIconName': instance.weatherIconName,
     };

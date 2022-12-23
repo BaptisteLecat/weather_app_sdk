@@ -24,7 +24,10 @@ mixin _$CurrentWeather {
   double get windspeed => throw _privateConstructorUsedError;
   double get winddirection => throw _privateConstructorUsedError;
   int get weathercode => throw _privateConstructorUsedError;
-  DateTime get time => throw _privateConstructorUsedError;
+  DateTime get time =>
+      throw _privateConstructorUsedError; //Custom from json function to get the weather icon name
+//@JsonKey(name: 'weathercode', fromJson: CurrentWeather.weatherIconNamefromJson, toJson: CurrentWeather.weatherIconNametoJson)
+  String? get weatherIconName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +46,8 @@ abstract class $CurrentWeatherCopyWith<$Res> {
       double windspeed,
       double winddirection,
       int weathercode,
-      DateTime time});
+      DateTime time,
+      String? weatherIconName});
 }
 
 /// @nodoc
@@ -64,6 +68,7 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
     Object? winddirection = null,
     Object? weathercode = null,
     Object? time = null,
+    Object? weatherIconName = freezed,
   }) {
     return _then(_value.copyWith(
       temperature: null == temperature
@@ -86,6 +91,10 @@ class _$CurrentWeatherCopyWithImpl<$Res, $Val extends CurrentWeather>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      weatherIconName: freezed == weatherIconName
+          ? _value.weatherIconName
+          : weatherIconName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -103,7 +112,8 @@ abstract class _$$_CurrentWeatherCopyWith<$Res>
       double windspeed,
       double winddirection,
       int weathercode,
-      DateTime time});
+      DateTime time,
+      String? weatherIconName});
 }
 
 /// @nodoc
@@ -122,6 +132,7 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
     Object? winddirection = null,
     Object? weathercode = null,
     Object? time = null,
+    Object? weatherIconName = freezed,
   }) {
     return _then(_$_CurrentWeather(
       temperature: null == temperature
@@ -144,6 +155,10 @@ class __$$_CurrentWeatherCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      weatherIconName: freezed == weatherIconName
+          ? _value.weatherIconName
+          : weatherIconName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -156,7 +171,8 @@ class _$_CurrentWeather implements _CurrentWeather {
       required this.windspeed,
       required this.winddirection,
       required this.weathercode,
-      required this.time});
+      required this.time,
+      this.weatherIconName});
 
   factory _$_CurrentWeather.fromJson(Map<String, dynamic> json) =>
       _$$_CurrentWeatherFromJson(json);
@@ -171,10 +187,14 @@ class _$_CurrentWeather implements _CurrentWeather {
   final int weathercode;
   @override
   final DateTime time;
+//Custom from json function to get the weather icon name
+//@JsonKey(name: 'weathercode', fromJson: CurrentWeather.weatherIconNamefromJson, toJson: CurrentWeather.weatherIconNametoJson)
+  @override
+  final String? weatherIconName;
 
   @override
   String toString() {
-    return 'CurrentWeather(temperature: $temperature, windspeed: $windspeed, winddirection: $winddirection, weathercode: $weathercode, time: $time)';
+    return 'CurrentWeather(temperature: $temperature, windspeed: $windspeed, winddirection: $winddirection, weathercode: $weathercode, time: $time, weatherIconName: $weatherIconName)';
   }
 
   @override
@@ -190,13 +210,15 @@ class _$_CurrentWeather implements _CurrentWeather {
                 other.winddirection == winddirection) &&
             (identical(other.weathercode, weathercode) ||
                 other.weathercode == weathercode) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.weatherIconName, weatherIconName) ||
+                other.weatherIconName == weatherIconName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, temperature, windspeed, winddirection, weathercode, time);
+  int get hashCode => Object.hash(runtimeType, temperature, windspeed,
+      winddirection, weathercode, time, weatherIconName);
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +240,8 @@ abstract class _CurrentWeather implements CurrentWeather {
       required final double windspeed,
       required final double winddirection,
       required final int weathercode,
-      required final DateTime time}) = _$_CurrentWeather;
+      required final DateTime time,
+      final String? weatherIconName}) = _$_CurrentWeather;
 
   factory _CurrentWeather.fromJson(Map<String, dynamic> json) =
       _$_CurrentWeather.fromJson;
@@ -233,6 +256,9 @@ abstract class _CurrentWeather implements CurrentWeather {
   int get weathercode;
   @override
   DateTime get time;
+  @override //Custom from json function to get the weather icon name
+//@JsonKey(name: 'weathercode', fromJson: CurrentWeather.weatherIconNamefromJson, toJson: CurrentWeather.weatherIconNametoJson)
+  String? get weatherIconName;
   @override
   @JsonKey(ignore: true)
   _$$_CurrentWeatherCopyWith<_$_CurrentWeather> get copyWith =>

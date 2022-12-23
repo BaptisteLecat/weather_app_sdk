@@ -1,6 +1,7 @@
 library weather_app_sdk;
 
 import 'package:weather_app_sdk/api/entity/weather_data/weather_data.dart';
+import 'package:weather_app_sdk/api/repository/city_repository/city_repository.dart';
 import 'package:weather_app_sdk/api/repository/forecast_repository/forecast_repository.dart';
 
 class WeatherAppSdk {
@@ -12,9 +13,19 @@ class WeatherAppSdk {
 
   String get description => 'A new Flutter package project.';
 
-  //Fetch the weather api in OneCall format from the OneCall repository.
-  Future<WeatherData> getOneCallWeather() async {
-    return await ForecastRepository()
-        .fetch(latitude: 47.34000015258789, longitude: -1.5399999618530273);
+  Future<WeatherData> getForecastWeatherByLatitudeLongitude({
+    required double latitude,
+    required double longitude,
+  }) async {
+    WeatherData weatherData = await ForecastRepository()
+        .fetch(latitude: latitude, longitude: longitude);
+    var city = await CityRepository().fetch(
+      latitude: latitude,
+      longitude: longitude,
+    );
+    weatherData = weatherData.copyWith(
+      city: city,
+    );
+    return weatherData;
   }
 }

@@ -13,6 +13,7 @@ _$_CurrentWeather _$$_CurrentWeatherFromJson(Map<String, dynamic> json) =>
       winddirection: (json['winddirection'] as num).toDouble(),
       weathercode: json['weathercode'] as int,
       time: DateTime.parse(json['time'] as String),
+      weatherIconName: json['weatherIconName'] as String?,
     );
 
 Map<String, dynamic> _$$_CurrentWeatherToJson(_$_CurrentWeather instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_CurrentWeatherToJson(_$_CurrentWeather instance) =>
       'winddirection': instance.winddirection,
       'weathercode': instance.weathercode,
       'time': instance.time.toIso8601String(),
+      'weatherIconName': instance.weatherIconName,
     };

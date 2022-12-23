@@ -10,6 +10,7 @@ class HourlyWeather with _$HourlyWeather {
     required double precipitation,
     required double rain,
     required int weathercode,
+    required String weatherIconName,
   }) = _HourlyWeather;
 
   factory HourlyWeather.fromJson(Map<String, dynamic> json) =>

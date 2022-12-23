@@ -26,6 +26,7 @@ mixin _$HourlyWeather {
   double get precipitation => throw _privateConstructorUsedError;
   double get rain => throw _privateConstructorUsedError;
   int get weathercode => throw _privateConstructorUsedError;
+  String get weatherIconName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +45,8 @@ abstract class $HourlyWeatherCopyWith<$Res> {
       @JsonKey(name: 'temperature_2m') double temperature2m,
       double precipitation,
       double rain,
-      int weathercode});
+      int weathercode,
+      String weatherIconName});
 }
 
 /// @nodoc
@@ -65,6 +67,7 @@ class _$HourlyWeatherCopyWithImpl<$Res, $Val extends HourlyWeather>
     Object? precipitation = null,
     Object? rain = null,
     Object? weathercode = null,
+    Object? weatherIconName = null,
   }) {
     return _then(_value.copyWith(
       time: null == time
@@ -87,6 +90,10 @@ class _$HourlyWeatherCopyWithImpl<$Res, $Val extends HourlyWeather>
           ? _value.weathercode
           : weathercode // ignore: cast_nullable_to_non_nullable
               as int,
+      weatherIconName: null == weatherIconName
+          ? _value.weatherIconName
+          : weatherIconName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -104,7 +111,8 @@ abstract class _$$_HourlyWeatherCopyWith<$Res>
       @JsonKey(name: 'temperature_2m') double temperature2m,
       double precipitation,
       double rain,
-      int weathercode});
+      int weathercode,
+      String weatherIconName});
 }
 
 /// @nodoc
@@ -123,6 +131,7 @@ class __$$_HourlyWeatherCopyWithImpl<$Res>
     Object? precipitation = null,
     Object? rain = null,
     Object? weathercode = null,
+    Object? weatherIconName = null,
   }) {
     return _then(_$_HourlyWeather(
       time: null == time
@@ -145,6 +154,10 @@ class __$$_HourlyWeatherCopyWithImpl<$Res>
           ? _value.weathercode
           : weathercode // ignore: cast_nullable_to_non_nullable
               as int,
+      weatherIconName: null == weatherIconName
+          ? _value.weatherIconName
+          : weatherIconName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -157,7 +170,8 @@ class _$_HourlyWeather implements _HourlyWeather {
       @JsonKey(name: 'temperature_2m') required this.temperature2m,
       required this.precipitation,
       required this.rain,
-      required this.weathercode});
+      required this.weathercode,
+      required this.weatherIconName});
 
   factory _$_HourlyWeather.fromJson(Map<String, dynamic> json) =>
       _$$_HourlyWeatherFromJson(json);
@@ -173,10 +187,12 @@ class _$_HourlyWeather implements _HourlyWeather {
   final double rain;
   @override
   final int weathercode;
+  @override
+  final String weatherIconName;
 
   @override
   String toString() {
-    return 'HourlyWeather(time: $time, temperature2m: $temperature2m, precipitation: $precipitation, rain: $rain, weathercode: $weathercode)';
+    return 'HourlyWeather(time: $time, temperature2m: $temperature2m, precipitation: $precipitation, rain: $rain, weathercode: $weathercode, weatherIconName: $weatherIconName)';
   }
 
   @override
@@ -191,13 +207,15 @@ class _$_HourlyWeather implements _HourlyWeather {
                 other.precipitation == precipitation) &&
             (identical(other.rain, rain) || other.rain == rain) &&
             (identical(other.weathercode, weathercode) ||
-                other.weathercode == weathercode));
+                other.weathercode == weathercode) &&
+            (identical(other.weatherIconName, weatherIconName) ||
+                other.weatherIconName == weatherIconName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, time, temperature2m, precipitation, rain, weathercode);
+  int get hashCode => Object.hash(runtimeType, time, temperature2m,
+      precipitation, rain, weathercode, weatherIconName);
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +237,8 @@ abstract class _HourlyWeather implements HourlyWeather {
       @JsonKey(name: 'temperature_2m') required final double temperature2m,
       required final double precipitation,
       required final double rain,
-      required final int weathercode}) = _$_HourlyWeather;
+      required final int weathercode,
+      required final String weatherIconName}) = _$_HourlyWeather;
 
   factory _HourlyWeather.fromJson(Map<String, dynamic> json) =
       _$_HourlyWeather.fromJson;
@@ -235,6 +254,8 @@ abstract class _HourlyWeather implements HourlyWeather {
   double get rain;
   @override
   int get weathercode;
+  @override
+  String get weatherIconName;
   @override
   @JsonKey(ignore: true)
   _$$_HourlyWeatherCopyWith<_$_HourlyWeather> get copyWith =>

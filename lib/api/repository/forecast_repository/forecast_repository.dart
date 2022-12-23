@@ -17,11 +17,6 @@ class ForecastRepository extends MainDataSource {
       url:
           "$ressource?latitude=${latitude.toString()}&longitude=${longitude.toString()}&hourly=temperature_2m,precipitation,rain,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto",
     );
-    var city = await CityRepository().fetch(
-      latitude: latitude,
-      longitude: longitude,
-    );
-    return WeatherData.fromJson(jsonDecode(response.content))
-        .copyWith(city: city);
+    return WeatherData.fromJson(jsonDecode(response.content));
   }
 }
