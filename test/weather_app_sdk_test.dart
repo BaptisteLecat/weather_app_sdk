@@ -34,7 +34,7 @@ void main() {
       var weatherData =
           await weatherAppSdk.getForecastWeatherByLatitudeLongitude(
               latitude: 1.30, longitude: 1.20);
-      print(weatherData.currentWeather.toString());
+      print(weatherData.hourlyUnits.toString());
       expect(weatherData, isA<WeatherData>());
     });
   });

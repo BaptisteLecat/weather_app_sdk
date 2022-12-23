@@ -40,4 +40,9 @@ class WeatherData with _$WeatherData {
           .toList(),
     );
   }
+
+  //Function to get the weather for a specific day
+  Day getDay(DateTime date) {
+    return days.firstWhere((day) => day.date == date);
+  }
 }
