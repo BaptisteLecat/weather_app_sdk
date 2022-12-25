@@ -28,7 +28,8 @@ class MainDataSource {
                 "Accept": "application/json",
               });
       responseJson = _returnResponse(response: response, toJsonLd: toJsonLd);
-    } on SocketException {
+    } on SocketException catch (e) {
+      throw e;
       throw FetchDataException(message: 'No Internet connection');
     }
     return responseJson;

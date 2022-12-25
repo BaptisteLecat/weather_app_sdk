@@ -10,7 +10,7 @@ class Day with _$Day {
     required List<HourlyWeather> hourlyWeather,
   }) = _Day;
 
-  factory Day.fromJson(dynamic hour, Map<String, dynamic> json) {
+  factory Day.fromJson(dynamic hour, int index, Map<String, dynamic> json) {
     DateTime date = DateTime.parse(hour);
     List<HourlyWeather> hourlyWeather =
         (json['hourly']['temperature_2m'] as List)
