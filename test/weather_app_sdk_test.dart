@@ -33,13 +33,8 @@ void main() {
     test('getOneCallWeather', () async {
       var weatherData =
           await weatherAppSdk.getForecastWeatherByLatitudeLongitude(
-              latitude: 47.22, longitude: -1.64);
-      //print(weatherData.days[0].hourlyWeather[0].time.toString());
-      print(weatherData.days.length.toString() + " days");
-      weatherData.days[0].hourlyWeather.forEach((element) {
-        print(element.time.toString());
-      });
-      print(DateTime.now().hour.toString());
+              latitude: 47.22304240209446, longitude: -1.6442262846555087);
+      print(weatherData.city);
       expect(weatherData, isA<WeatherData>());
     }, timeout: Timeout(Duration(seconds: 10)));
   });

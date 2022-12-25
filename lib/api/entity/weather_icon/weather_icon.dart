@@ -68,29 +68,24 @@ class WeatherIcon {
   };
 
   static String getImageName(int code) {
-    if (!codes.keys.contains(code)) {
-      // Retournez le nom d'une image par défaut en fonction du type de météo
-      if (code >= 0 && code <= 3) {
-        return 'clear_sky';
-      } else if (code >= 45 && code <= 48) {
-        return 'fog';
-      } else if (code >= 51 && code <= 57) {
-        return 'drizzle';
-      } else if (code >= 61 && code <= 67) {
-        return 'rain';
-      } else if (code >= 71 && code <= 77) {
-        return 'snow';
-      } else if (code >= 80 && code <= 82) {
-        return 'rain_showers';
-      } else if (code >= 85 && code <= 86) {
-        return 'snow_showers';
-      } else if (code == 95 || code == 96 || code == 99) {
-        return 'thunderstorm';
-      } else {
-        return 'unknown';
-      }
+    if (code >= 0 && code <= 3) {
+      return 'clear_sky';
+    } else if (code >= 45 && code <= 48) {
+      return 'fog';
+    } else if (code >= 51 && code <= 57) {
+      return 'drizzle';
+    } else if (code >= 61 && code <= 67) {
+      return 'rain';
+    } else if (code >= 71 && code <= 77) {
+      return 'snow';
+    } else if (code >= 80 && code <= 82) {
+      return 'rain_showers';
+    } else if (code >= 85 && code <= 86) {
+      return 'snow_showers';
+    } else if (code == 95 || code == 96 || code == 99) {
+      return 'thunderstorm';
     } else {
-      return codes[code]!;
+      return 'unknown';
     }
   }
 }
